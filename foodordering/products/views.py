@@ -175,39 +175,6 @@ def dashboard(request):
 
 
 
-# def single_dish(request, id):
-#     context={}
-#     dish = get_object_or_404(Dish, id=id)
-
-#     if request.user.is_authenticated:
-#         cust = get_object_or_404(Profile, user__id = request.user.id)
-#         order = Order(customer=cust, item=dish)
-#         order.save()
-#         inv = f'INV0000-{order.id}'
-
-#         paypal_dict = {
-#             'business':settings.PAYPAL_RECEIVER_EMAIL,
-#             'amount':dish.discounted_price,
-#             'item_name':dish.name,
-#             'user_id':request.user.id,
-#             'invoice':inv,
-#             'notify_url':'http://{}{}'.format(settings.HOST, reverse('paypal-ipn')),
-#             'return_url':'http://{}{}'.format(settings.HOST,reverse('payment_done')),
-#             'cancel_url':'http://{}{}'.format(settings.HOST,reverse('payment_cancel')),
-#         }
-
-#         order.invoice_id = inv 
-#         order.save()
-#         request.session['order_id'] = order.id
-
-#         form = PayPalPaymentsForm(initial=paypal_dict)
-#         context.update({'form':form})
-#     context.update({'dish':dish})
-
-#     return render(request,'dish.html', context)
-
-
-
 def single_dish(request, id):
     context={}
 
