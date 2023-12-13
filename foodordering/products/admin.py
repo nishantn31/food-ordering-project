@@ -1,9 +1,24 @@
 from django.contrib import admin
-from products.models import Contact_us
+from products.models import Contact, Category, Team, Dish, Profile,Order
 
-admin.site.site_header = "Tasty Bytes | Admin"
+admin.site.site_header = "TastyBytes | Admin"
 
 class ContactAdmin(admin.ModelAdmin):
-    list_display = ["id", "name", "email", "subject", "added_on", "is_approved"]
+    list_display = ['id','name','email','subject','added_on','is_approved']
 
-admin.site.register(Contact_us, ContactAdmin)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ['id','name','added_on','updated_on']
+
+class TeamAdmin(admin.ModelAdmin):
+    list_display = ['id','name','added_on','updated_on']
+
+class DishAdmin(admin.ModelAdmin):
+    list_display = ['id','name','price','added_on','updated_on']
+
+
+admin.site.register(Contact, ContactAdmin)
+admin.site.register(Category,CategoryAdmin)
+admin.site.register(Team, TeamAdmin )
+admin.site.register(Dish, DishAdmin )
+admin.site.register(Profile)
+admin.site.register(Order)
