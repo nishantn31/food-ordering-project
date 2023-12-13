@@ -27,7 +27,7 @@ SECRET_KEY = "django-insecure-p(qm^9vnfmk@ehqx75($^5s-=y7ky7*(pokwdrs3u&s(gveim#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -121,6 +121,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)
+
 STATICFILES_DIRS = [
     BASE_DIR , "static"
 ]
@@ -136,4 +140,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR,"media")
 PAYPAL_RECEIVER_EMAIL = 'sb-1sgx427026247@business.example.com'
 PAYPAL_TEST = True
 
-HOST = '127.0.0.1:8000'
+# HOST = '127.0.0.1:8000'
+HOST = 'nishantn31.pythonanywhere.com'

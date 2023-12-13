@@ -9,7 +9,7 @@
         <meta content="Free Website Template" name="description">
 
         <!-- Favicon -->
-        <link href="/static/img/favicon.ico" rel="icon">
+        <link href="{% static 'img/logo.png' %}" rel="icon">
 
         <!-- Google Font -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Nunito:600,700" rel="stylesheet"> 
@@ -46,7 +46,7 @@
                         <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
                         {% if user.is_authenticated %}
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fas fa-user"></i></a>
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">My Account</a>
                             <div class="dropdown-menu">
                             {% if user.is_superuser or user.is_staff %}
                                 <a href="{% url 'admin:index' %}" class="dropdown-item">Dashboard</a>
@@ -57,7 +57,7 @@
                             </div>
                         </div>
                         {% else %}
-                        <a href="{% url 'register' %}" class="nav-link" ><i class="fas fa-user"></i></a>
+                        <a href="{% url 'register' %}" class="nav-link" >My Account</a>
                         {% endif %}
                     </div>
                 </div>

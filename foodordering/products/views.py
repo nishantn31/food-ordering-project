@@ -179,8 +179,6 @@ def single_dish(request, id):
     context={}
 
     dish = get_object_or_404(Dish, id=id)
-    print(dish)
-    print(request.user.id)
 
     if request.user.is_authenticated:
         cust = get_object_or_404(Profile, user__id = request.user.id)
@@ -204,7 +202,8 @@ def single_dish(request, id):
         request.session['order_id'] = order.id
 
         form = PayPalPaymentsForm(initial=paypal_dict)
-        context.update({'dish':dish, 'form':form})
+        context.update({'form':form})
+    context.update({'dish':dish})
     
 
     return render(request,'dish.html', context)
